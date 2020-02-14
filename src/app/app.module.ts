@@ -12,7 +12,7 @@ import { NavBarComponent } from './shared/components/profile/nav-bar/nav-bar.com
     AppComponent,
     NavLeftComponent,
     TestBotComponent,
-    NavBarComponent
+  
   ],
   imports: [
     BrowserModule,

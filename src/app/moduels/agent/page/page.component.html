@@ -1,1 +1,13 @@
-<p>page works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="row">
+<div class="col-md-2">    
+<app-nav-left></app-nav-left>
+</div>
+<div class="col-md-7" style="border-right: 1px solid ;border-left: 1px solid ; display: inline-block;
+height: 100%;">
+   <router-outlet name="agentrouter"></router-outlet>
+</div>
+<div class="col-md-3">    
+    <app-test-bot></app-test-bot>
+    </div>
+</div>

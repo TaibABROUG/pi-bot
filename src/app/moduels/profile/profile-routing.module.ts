@@ -7,10 +7,10 @@ import { PageComponent } from './page/page.component';
 
 
 const routes: Routes = [
- {path: '' , component :  PageComponent},
- {path: 'home' , component :  HomeComponent},
- {path: 'statics' , component : StaticsComponent},
- {path: 'settings' , component :  SettingsComponent},
+ {path: '' , component :  PageComponent , children:[{path: '' , component: HomeComponent , outlet: 'profilerouter'}]},
+ {path: 'home' , component :  PageComponent , children:[{path: '' , component: HomeComponent , outlet: 'profilerouter'}]},
+ {path: 'statics' , component : PageComponent , children:[{path: '' , component: StaticsComponent , outlet: 'profilerouter'}] },
+ {path: 'settings' , component :  PageComponent , children:[{path: '' , component: SettingsComponent , outlet: 'profilerouter'}] },
 ];
 
 @NgModule({

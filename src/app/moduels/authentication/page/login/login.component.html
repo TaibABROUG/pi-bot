@@ -3,22 +3,22 @@
     <div class="card">
       <h4 class="card-header">Login</h4>
       <div class="card-body">
-        <form>
+        <form [formGroup]="signinForm" (ngSubmit)="loginUser()">
           <div class="form-group">
             <label for="username">Email</label>
-            <input type="email" formControlName="username" class="form-control" required>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
             <div class="invalid-feedback">
               <div>Emaail is required</div>
           </div>
       </div>
       <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" formControlName="password" class="form-control" required />
+          <input type="password"class="form-control" formControlName="password" placeholder="Password" required />
           <div class="invalid-feedback">
               <div >Password is required</div>
           </div>
       </div>
-      <button  class="btn btn-submit form-control" [routerLink]="['/profileid']">
+      <button type="submit" class="btn btn-submit form-control" >
           <span class="mt-5 spinner-border-sm mr-1"></span>
           Login
       </button>
@@ -29,7 +29,7 @@
     <div style="text-align: center;">
         <a href="#" [routerLink]="['/auth/register']">Register now!</a>
     </div>
-      <div  class="alert alert-danger mt-3 mb-0">error</div>
+      <div *ngIf="this.authService.errorLogin" class="alert alert-danger mt-3 mb-0">false mail or password 😔 </div>
   
   
   

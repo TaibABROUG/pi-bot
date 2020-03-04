@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 
 
 const routes: Routes = [{
@@ -10,7 +11,7 @@ const routes: Routes = [{
 // { path: 'profileid/agent/entities', loadChildren:()=> import ('./moduels/agent/agent.module').then(m=> m.AgentModule),},
 // { path: 'profileid/agent/knowledges', loadChildren:()=> import ('./moduels/agent/agent.module').then(m=> m.AgentModule),},
 // { path: 'profileid/agent/database', loadChildren:()=> import ('./moduels/agent/agent.module').then(m=> m.AgentModule),},
-{  path: 'profileid', loadChildren:()=> import ('./moduels/profile/profile.module').then(m=> m.ProfileModule),}
+{  path: 'user-profile/:id', loadChildren:()=> import ('./moduels/profile/profile.module').then(m=> m.ProfileModule), canActivate: [AuthGuard]}
  , {path: 'agentid', loadChildren:()=> import ('./moduels/agent/agent.module').then(m=> m.AgentModule)}
 ];
 

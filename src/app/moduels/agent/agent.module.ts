@@ -11,10 +11,12 @@ import { NavBarComponent } from 'src/app/shared/components/profile/nav-bar/nav-b
 import { NavLeftComponent } from 'src/app/shared/components/agent/nav-left/nav-left.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { EditIntentComponent } from './page/intents/edit-intent/edit-intent.component';
+import { EditEntitieComponent } from './page/entities/edit-entitie/edit-entitie.component';
 
 
 @NgModule({
-  declarations: [PageComponent, IntentsComponent, EntitiesComponent, KnowledgeComponent, DatabaseComponent],
+  declarations: [PageComponent, IntentsComponent, EntitiesComponent, KnowledgeComponent, DatabaseComponent, EditIntentComponent, EditEntitieComponent],
   imports: [
     CommonModule,
     AgentRoutingModule,

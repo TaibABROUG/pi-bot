@@ -1,0 +1,33 @@
+<p>edit-entitie works!</p>
+
+
+
+
+<div class="row m-2">
+    <input type="text" class="form-control col-6"  [(ngModel)]="this.entitie.name">
+    <button type="submit" class="form-control btn btn-primary col-4" style="margin-left:10% ;"  (click) = onSaveClicked() >Save</button>
+  </div>
+    <br>
+    <div class="row m-2">
+    <label class="col-12">add to this entitie:</label>
+    <div class="col-8">
+
+    <input type="text" class="form-control mb-1" placeholder="value name" [(ngModel)]="value_name" >
+    <textarea rows="1" class="form-control"  placeholder="add synonyms to this entitie" [(ngModel)]="synonymes"></textarea>
+</div>  
+    <button class="form-control btn btn-success col-3 ml-1" (click)="onAddClicked()" [disabled]= "disabled()">add+</button>
+ </div>
+ <br>
+ <br>
+
+ 
+     <div *ngFor="let item of this.value ; index as i">
+     <div class="row m-2">
+      <input type="text" class="form-control col-4 mr-1" value="{{item.synonymes}}" (change)="sauvgardsyn($event, i)" >   
+      <textarea  rows="1" class="form-control col-6 " value="{{item.name}}" (change)="sauvgardvalue($event, i)"></textarea> 
+        <button class="col-1 form-control btn , btn-danger ml-1" style="background-color: red;" type="submit" (click) ="onDeleteClicked(i)">
+          X
+        </button>
+      </div>
+      </div>
+

@@ -11,7 +11,7 @@ export class PageComponent implements OnInit {
 
   constructor(   public authService: AuthService,
     private actRoute: ActivatedRoute)  {
-      let id = this.actRoute.snapshot.paramMap.get('id');
+      let id = this.actRoute.snapshot.paramMap.get('id_user');
       this.authService.getUserProfile(id).subscribe(res => {
         this.currentUser = res.msg;
       })

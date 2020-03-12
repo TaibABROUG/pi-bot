@@ -3,7 +3,7 @@
   <div class ="row">
     <div class="col-6">
   <p class="blog-header-logo text-dark mt-2 ml-3">
-Agent1
+{{this.name_agent}}
   </p>
 </div>
 <div class="col-6">
@@ -14,9 +14,9 @@ Agent1
 </div>
 </div>
 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link  " routerLinkActive="active" [routerLink]="['/profileid/agentid/intents']">intents</a>
-  <a class="nav-link" routerLinkActive="active"  [routerLink]="['/profileid/agentid/entities']">Entities</a>
-  <a class="nav-link" routerLinkActive="active"  [routerLink]="['/profileid/agentid/knowledges']" >knowledge</a>
-  <a class="nav-link" routerLinkActive="active"  [routerLink]="['/profileid/agentid/database']" >database</a>
+  <a class="nav-link  " routerLinkActive="active" [routerLink]="['/'+id_user+'/'+id_agent+'/intents']">intents</a>
+  <a class="nav-link" routerLinkActive="active"  [routerLink]="['/'+id_user+'/'+id_agent+'/entities']">Entities</a>
+  <a class="nav-link" routerLinkActive="active"  [routerLink]="['/'+id_user+'/'+id_agent+'/knowledges']" >knowledge</a>
+  <a class="nav-link" routerLinkActive="active"  [routerLink]="['/'+id_user+'/'+id_agent+'/database']" >database</a>
 </div>
 </div>

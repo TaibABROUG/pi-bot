@@ -1,0 +1,28 @@
+
+
+
+     <div class="row m-2">
+      <input type="text" class="form-control col-6"  [(ngModel)]="this.intent.name">
+      <button type="submit" class="form-control btn btn-primary col-4" style="margin-left:10% ;"  (click) = onSaveClicked() >Save</button>
+    </div>
+      <br>
+      <div class="row m-2">
+      <label class="col-12">add to this intent:</label>
+      <textarea rows="1" class="form-control col-8"  placeholder="add to this intent" [(ngModel)]="addItem"></textarea>
+      <button class="form-control btn btn-success col-3 ml-1" (click)="onAddClicked()" [disabled]= "disabled()">add+</button>
+   </div>
+   <br>
+   <br>
+    <!-- <div *ngFor="let item of listDescIntent">
+      <p>
+        {{item}}  <button style="background-color: red;" type="submit" (click) ="onDeleteClicked()">X</button>
+      </p> -->
+      <div *ngFor="let item of this.intent.content ; index as i">
+       <div class="row m-2">
+          <textarea  rows="1" class="form-control col-10 " value="{{item.desc}}" (change)="sauvgard($event, i)"></textarea> 
+          <button class="col-1 form-control btn , btn-danger ml-1" style="background-color: red;" type="submit" (click) ="onDeleteClicked(i)">
+            X
+          </button>
+        </div>
+        </div>
+ 

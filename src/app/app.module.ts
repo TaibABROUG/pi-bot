@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/authconfig.interceptor';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,16 +22,18 @@ import { AuthInterceptor } from './core/interceptors/authconfig.interceptor';
   
   ],
   imports: [
+
     HttpClientModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    MatIconModule,MatButtonModule
+    MatIconModule
   
   ],
-  providers: [ {provide: HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi:true}],
+  providers: [ {provide: HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi:true} , ],
+    
   bootstrap: [AppComponent]
 })
 export class AppModule { }

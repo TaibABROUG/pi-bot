@@ -14,6 +14,28 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/interceptors/authconfig.interceptor';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import {SocialLoginModule,
+AuthServiceConfig,
+GoogleLoginProvider,
+FacebookLoginProvider,
+AuthService} from "angular-6-social-login";
+
+
+export function getAuthServiceConfigs() {
+let config = new AuthServiceConfig(
+    [
+      
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider("859553597940-qmdlhq26otj87ndjep3pfkkprpvq6afd.apps.googleusercontent.com")
+      }
+       
+    ]
+);
+return config;
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +44,8 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
   
   ],
   imports: [
+  
+
 
     HttpClientModule,
     RouterModule,
@@ -29,10 +53,18 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule, 
+    SocialLoginModule,
+  
   
   ],
-  providers: [ {provide: HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi:true} , ],
+  providers: [   AuthService , 
+    {provide: HTTP_INTERCEPTORS , useClass: AuthInterceptor , multi:true} ,
+    {
+   
+    provide: AuthServiceConfig,
+    useFactory: getAuthServiceConfigs
+  } ],
     
   bootstrap: [AppComponent]
 })

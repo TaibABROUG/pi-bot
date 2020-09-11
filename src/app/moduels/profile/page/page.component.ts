@@ -9,12 +9,16 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class PageComponent implements OnInit {
   currentUser: Object = {};
 
+
   constructor(   public authService: AuthService,
     private actRoute: ActivatedRoute)  {
       let id = this.actRoute.snapshot.paramMap.get('id_user');
       this.authService.getUserProfile(id).subscribe(res => {
         this.currentUser = res.msg;
+      
+
       })
+      
     }
 
   ngOnInit() {

@@ -41,6 +41,20 @@ export class HomeComponent implements OnInit {
 
     this.loadAllAgent();
   }
+  copy( text ){
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value =text;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+    
+  }
   public loadAllAgent() {
     this.agentService.getAllLists(this.id).subscribe((res) => {
       console.log(res);

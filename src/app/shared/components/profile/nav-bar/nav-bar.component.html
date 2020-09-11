@@ -21,7 +21,11 @@
           <a class="nav-link"   [routerLink]="['/'+this.iduser+'/settings']" >Setting</a>
         </li>
         <li class="nav-item" routerLinkActive="active" >
-          <a class="nav-link" (click)="logout()"  >Logout</a>
+          <a class="nav-link" (click)="logout()"  >Logout </a>
+        </li>
+        <li class="nav-item" style= "  border-radius: 50%;
+        background-color: #ddd; " routerLinkActive="active" >
+          <a class="nav-link  "  style="color: mediumblue; font-weight: bold;"(click)="logout()"  > {{this.first_2_Carac}}</a>
         </li>
     </ul>
     </div>

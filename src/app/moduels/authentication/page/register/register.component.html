@@ -31,10 +31,12 @@
           <span class="mt-5 spinner-border-sm mr-1"></span>
           Register
       </button>
-      <button  class="btn form-control google-btn">
+    </form>
+      <button  class="btn form-control google-btn" (click)="signInWithGoogle()" type="button">
         <span class="mt-5 spinner-border-sm mr-1"></span>
-        Register with Google account
+        Login with Google account
     </button>
+    
     <div style="text-align: center;">
     <a href="#"  [routerLink]="['/auth/login']" > I have an account</a>
   </div>
@@ -42,7 +44,7 @@
   
   
   
-        </form>
+   
       </div>
     </div>
   

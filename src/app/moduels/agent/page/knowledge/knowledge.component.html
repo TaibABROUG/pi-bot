@@ -1,1 +1,9 @@
-<p>knowledge works!</p>
+
+<div class="container">
+<input type="file" name="fileUplaod" id="fileUpload"
+ ng2FileSelect [uploader]="uploader">
+<button type="button" class="btn btn-success btn-s" 
+(click)="uploader.uploadAll()" 
+[disabled]="!uploader.getNotUploadedItems().length" >
+    Upload FQA file</button>
+</div>    

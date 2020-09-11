@@ -1,0 +1,38 @@
+<p>list of answers </p>
+<div class="container">
+  <div class="form-group" *ngFor="let item of table; index as i">
+    <div class="row form">
+      <div class="col-10">
+        <textarea
+          type="text"
+          [(ngModel)]="newtable[i]"
+          class="form-control"
+          value="{{ item }}"
+        >
+        </textarea>
+      </div>
+      <div class="col-2">
+        <button
+          class="btn btn-danger"
+          style="background-color: red"
+          type="submit"
+          (click)="onDeleteClicked(i)"
+        >
+          X
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div  class="col-2">
+    <button type="button" class="btn btn-primary" (click)="addSynon()">
+      +
+    </button>
+  </div>
+  <div class="col-8">
+    <button type="button" class="form-control btn btn-success" (click)="onClickUpdate()"  item-right>
+      update
+    </button></div>
+  </div>
+</div>

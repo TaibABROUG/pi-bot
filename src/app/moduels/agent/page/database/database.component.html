@@ -1,1 +1,7 @@
-<p>database works!</p>
+<p>APIs works!</p> 
+<div class="col-md-3">
+        
+    <button type="submit" class="btn form-control btn-success " (click)="saveFile()" >Save</button>
+</div>
+
+<textarea cols="60" rows="20"[(ngModel)]="text_file">{{this.text_file}} </textarea>

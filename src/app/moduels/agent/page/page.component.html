@@ -1,13 +1,13 @@
 <app-nav-bar></app-nav-bar>
-<div class="row">
-<div class="col-md-2">    
+<div class="row" style="margin-right: 0px;">
+<div class="col-md-2 pt-2 pl-1">    
 <app-nav-left></app-nav-left>
 </div>
 <div class="col-md-7" style="border-right: 1px solid ;border-left: 1px solid ; display: inline-block;
 height: 100%;">
-   <router-outlet name="agentrouter"></router-outlet>
+   <router-outlet name="agentrouter" style="padding: 10px;"></router-outlet>
 </div>
-<div class="col-md-3">    
+<div class="col-md-3 pt-1 ">    
     <app-test-bot></app-test-bot>
     </div>
 </div>

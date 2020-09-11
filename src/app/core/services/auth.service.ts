@@ -1,11 +1,12 @@
 
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/shared/models/user';
+import { SocialUser } from 'src/app/shared/models/socialUser';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { AuthService as AuthGService,GoogleLoginProvider} from 'angular-6-social-login';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +19,8 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    public router: Router
+    public router: Router,
+    private socialAuthService: AuthGService 
   ) {
   }
 
@@ -30,6 +32,30 @@ export class AuthService {
       .pipe(
         catchError(this.handleError)
       )
+  }
+  // Sign-up-Google
+  signUpGoogle(socialUser): Observable<any> {
+    console.log(socialUser);
+   
+    console.log("gggggg", socialUser)
+    let api = `${this.endpoint}/register-gmail-user`;
+    return this.http.post(api, socialUser)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+  //signInGoogle
+  signInGoogle(socialUser) {
+    return this.http.post<any>(`${this.endpoint}/signingmail`, socialUser)
+      .subscribe((res: any) => {
+        localStorage.setItem('access_token', res.token)
+         
+        this.getUserProfile(res._id).subscribe((res) => {
+          this.currentUser = res;
+          this.router.navigate([res.msg._id]);
+        })
+      },
+      error => this.errorLogin = true)
   }
 
   // Sign-in
@@ -58,11 +84,13 @@ export class AuthService {
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
+    this.socialAuthService.signOut()
+     
       this.router.navigate(['login']);
     }
   }
 
-  // User profile
+  //User profile
   getUserProfile(iduser: String): Observable<any> {
   // console.log(id);
     const api = `${this.endpoint}/user-profile/${iduser}`;
